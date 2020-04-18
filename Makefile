@@ -1,2 +1,2 @@
 build:
-	docker build -t webhook_logger:latest .
+	docker build -t webhook-logger:latest .

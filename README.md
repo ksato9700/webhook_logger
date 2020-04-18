@@ -3,7 +3,7 @@ A tool to record webhook notificatioin
 
 ## Usage
 ```
-docker run -it --rm -p 5000:5000 ksato9700/webhook_logger
+docker run -it --rm -p 5000:5000 ksato9700/webhook-logger
 ```
 ## Build locally
 ```
