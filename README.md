@@ -1,5 +1,5 @@
 # Webhook Logger
-A tool to record webhook notificatioin
+A tool to record webhook notification
 
 ## Usage
 ```
