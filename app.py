@@ -12,11 +12,11 @@ def post():
     timestamp = dt.now().strftime("%d/%b/%Y %I:%M:%S")
     app.logger.info(f'[{timestamp}] Received a notification')
     if request.mimetype == "application/json":
-      print(json.dumps(request.json, indent=2))
-      return ''
+        print(json.dumps(request.json, indent=2))
+        return ''
     # elif request.mimetype == 'application/x-www-form-urlencoded':
     #   print(request.form)
     #   return ''
     else:
-      app.logger.error(f"Unknown content-type: {request.mimetype}")
-      return '', 400
+        app.logger.error(f"Unknown content-type: {request.mimetype}")
+        return '', 400
