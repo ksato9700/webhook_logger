@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def post():
-    timestamp = dt.now().strftime("%d/%b/%Y %I:%M:%S")
+    timestamp = dt.now().strftime("%d/%b/%Y %H:%M:%S")
     app.logger.info(f'[{timestamp}] Received a notification')
     if request.mimetype == "application/json":
         print(json.dumps(request.json, indent=2))

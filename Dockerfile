@@ -5,6 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV FLASK_APP app.py
 ENV PORT 5000
+ENV TZ Asia/Tokyo
 
 COPY ./requirements.txt app.py /usr/src/app/
 RUN pip install --upgrade pip \
