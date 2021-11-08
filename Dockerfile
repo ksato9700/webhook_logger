@@ -1,14 +1,13 @@
-FROM python:3.8.2-slim-buster
+FROM python:3.10-slim-buster
 WORKDIR /usr/src/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV FLASK_APP app.py
-ENV PORT 5000
 ENV TZ Asia/Tokyo
 
-COPY ./requirements.txt app.py /usr/src/app/
+COPY webhook_logger webhook_logger
+COPY pyproject.toml pyproject.toml
 RUN pip install --upgrade pip \
-  && pip install -r requirements.txt
+  && pip install .
 EXPOSE $PORT
-CMD flask run -h 0.0.0.0 -p $PORT
+CMD uvicorn webhook_logger.main:app --host 0.0.0.0 --port $PORT
