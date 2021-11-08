@@ -13,9 +13,10 @@ app = FastAPI()
 async def post(request: Request, content_type=Header(None)):
     timestamp = dt.now().strftime("%d/%b/%Y %H:%M:%S")
     logger.info(f"[{timestamp}] Received a notification")
-    if content_type == "application/json":
+    content_type = content_type.split("; charset=")
+    if content_type[0] == "application/json":
         jsondata = await request.json()
-        logger.info(json.dumps(jsondata, indent=2))
+        logger.info(json.dumps(jsondata, indent=2, ensure_ascii=False))
         return ""
     else:
         body = await request.body()
